@@ -44,6 +44,7 @@ templates will look like in production.
 Kent Daleng, `Kent.Daleng@nav.no`
 * Håvard Stigen Andersen, `Havard.Stigen.Andersen@nav.no`
 * Bjørn Inge Kulsveen, `Bjorn.Inge.Kulsveen@nav.no`
+* Golshid Bahadorian, `Golshid.Bahadorian@nav.no`
 
 ### For NAV employees
 We are available at the Slack channel #flex
