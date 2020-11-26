@@ -41,7 +41,7 @@ templates will look like in production.
 
 ## Contact us
 ### Code/project related questions can be sent to
-Kent Daleng, `Kent.Daleng@nav.no`
+* Kent Daleng, `Kent.Daleng@nav.no`
 * Håvard Stigen Andersen, `Havard.Stigen.Andersen@nav.no`
 * Bjørn Inge Kulsveen, `Bjorn.Inge.Kulsveen@nav.no`
 * Golshid Bahadorian, `Golshid.Bahadorian@nav.no`
