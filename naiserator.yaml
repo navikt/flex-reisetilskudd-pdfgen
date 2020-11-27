@@ -38,4 +38,4 @@ spec:
   accessPolicy:
     inbound:
       rules:
-        - application: flex-reisetilskudd-arkivering
+        - application: flex-reisetilskudd-gsak
