@@ -1,5 +1,4 @@
 <style>
-
     @page {
         size: A4 portrait;
         margin: 1cm 0.3cm 0.5cm;
@@ -10,8 +9,9 @@
         }
     }
 
-    @page:first {
+    @page: first {
         margin-top: 0;
+
         @top-left {
             content: element(header);
         }
@@ -22,7 +22,8 @@
     }
 
     img {
-        image-rendering: pixelated; /* Required for PDF/A-compliance */
+        image-rendering: pixelated;
+        /* Required for PDF/A-compliance */
     }
 
     h1 {
@@ -37,6 +38,10 @@
         margin-bottom: 3px;
         font-size: 14px;
         font-family: "Source Sans Pro";
+    }
+
+    .semibold {
+        font-weight: 600;
     }
 
 
@@ -60,6 +65,7 @@
     #pagenumber:before {
         content: counter(page);
     }
+
     #pagecount:before {
         content: counter(pages)
     }
@@ -93,4 +99,63 @@
         width: 48px;
     }
 
+    .container {
+        margin: 0cm 0.7cm;
+        height: 850px;
+    }
+
+    .personinfo {
+        position: relative;
+        top: 25px;
+    }
+
+    .navn {
+        font-weight: 600;
+        font-size: 20px;
+        width: 350px;
+    }
+
+    .id {
+        width: 430px;
+        margin-bottom: 30px;
+        font-size: 18px;
+    }
+
+    .personikon {
+        display: inline-block;
+        width: 32px;
+        margin-right: 8px;
+        margin-left: 3px;
+    }
+
+    .persontekst {
+        display: inline-block;
+        width: 667px;
+    }
+
+    .sendt {
+        display: inline-block;
+        float: right;
+        width: 79px;
+        font-size: 16px;
+    }
+
+    .persontekst__personalia {
+        display: inline-block;
+    }
+
+    .persontekst__sidetopp {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    #sykmelding__header {
+        background: #C2EAF7;
+        padding: 1px 0.9cm;
+    }
+
+    #sykmelding__header h2 {
+        padding: 0;
+        font-size: 18px;
+    }
 </style>
