@@ -9,49 +9,58 @@
 </head>
 
 <body>
-    <div id="header">
-        <img class="navlogo" src="{{ image "Navlogo.png" }}" />
-        <h1 class="title">{{> title}}</h1>
-    </div>
-    <div class="container">
-        <div class="personinfo">
-            <div class="persontekst">
-                <div class="persontekst__sidetopp">
-                    <img class="personikon" src="{{ image "Personikon.png" }}" />
-                    <div class="persontekst__personalia">
-                        <p class="navn">
-                            {{ navn }}
-                        </p>
-                        <p class="id">
-                            {{ insert_at fnr 6 }}
-                        </p>
-                    </div>
-                    <div class="sendt">
-                        {{# if sendtTilNAVDato}}
+<div id="header">
+    <img class="navlogo" src="{{ image "Navlogo.png" }}"/>
+    <h1 class="title">{{> title}}</h1>
+</div>
+<div class="container">
+    <div class="personinfo">
+        <div class="persontekst">
+            <div class="persontekst__sidetopp">
+                <img class="personikon" src="{{ image "Personikon.png" }}"/>
+                <div class="persontekst__personalia">
+                    <p class="navn">
+                        {{ navn }}
+                    </p>
+                    <p class="id">
+                        {{ insert_at fnr 6 }}
+                    </p>
+                </div>
+                <div class="sendt">
+                    {{# if sendtTilNAVDato}}
                         <p>
-                            <span class="semibold">Sendt til NAV</span><br />{{ iso_to_date sendtTilNAVDato }}
+                            <span class="semibold">Sendt til NAV</span><br/>{{ iso_to_date sendtTilNAVDato }}
                         </p>
-                        {{/if}}
-                        {{# if sendtArbeidsgiver}}
+                    {{/if}}
+                    {{# if sendtArbeidsgiver}}
                         <p>
-                            <span class="semibold">Sendt til arbeidsgiver</span><br />{{ iso_to_date sendtArbeidsgiver }}
+                            <span class="semibold">Sendt til arbeidsgiver</span><br/>{{ iso_to_date sendtArbeidsgiver }}
                         </p>
-                        {{/if}}
-                    </div>
+                    {{/if}}
                 </div>
             </div>
         </div>
-        <div id="sykmelding__header">
-            <h2>Opplysninger fra sykmeldingen</h2>
-            <!-- Denne er litt tykkere og litt rare enn den i skissene :( -->
-        </div>
     </div>
+    <div id="sykmelding__header">
+        <h2>Opplysninger fra sykmeldingen</h2>
+        <!-- Denne er litt tykkere og litt rare enn den i skissene :( -->
+    </div>
+    <p>Her er litt info fra sykmeldinga</p>
 
+    <div id="sykmelding__header">
+        <h2>Kvitteringer</h2>
     </div>
+    {{# each kvitteringer as |kvittering|~}}
+        <h3>{{kvittering.navn}}</h3>
+        <p>{{kvittering.datoForReise}}</p>
+        <img src="data:image/jpeg;base64,{{kvittering.b64data}}"/>
+    {{/each}}
+</div>
 
-    <div id="footer">
-        <span class="sidetall">side <span id="pagenumber"></span> av <span id="pagecount"></span></span>
-    </div>
+<div id="footer">
+    <span class="sidetall">side <span id="pagenumber"></span> av <span id="pagecount"></span></span>
+</div>
 </body>
 
 </html>
+
