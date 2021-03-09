@@ -183,10 +183,6 @@
         background-color: #f7f7f7;
     }
 
-    .kvittering {
-        page-break-before: always;
-    }
-
     .kvittering__metadata {
         padding-left: 0.7cm;
         width: 18.6cm;
@@ -195,7 +191,7 @@
     }
 
     .kvittering__metadata p {
-        /* 
+        /*
             old school kolonnesystem siden vi ikke kan bruke flex/grid/noe mer fornuftig her.
             ikke at det gjør så himla mye, siden et A4-ark stort sett kun har én størrelse
         */
@@ -221,4 +217,107 @@
     .no_border {
         border: 0px transparent !important;
     }
+
+    .sporsmalcontainer {
+        padding: 0.5cm 0.9cm
+    }
+    .svarcontainer {
+        position: relative;
+        left: 2px;
+    }
+    .svar {
+        margin-top: 4px;
+        width: 90%;
+        font-size: 14px;
+        font-family: "Source Sans Pro";
+    }
+    .svar--perioder {
+        font-size: 18px;
+        font-weight: bold;
+        margin-left: 3px;
+    }
+    .svar--checkbox {
+        display: inline-block;
+    }
+    .checkbox {
+        vertical-align: top;
+        width: 13px;
+        margin: -3px 5px 0px 1px;
+    }
+    .hovedsporsmal {
+        page-break-inside: avoid;
+        margin-bottom: 1em;
+    }
+    .oppsummering__seksjon {
+        page-break-inside: avoid;
+        padding-bottom: 0.5cm;
+    }
+    .sporsmal .sporsmal {
+        margin-left: 10px
+    }
+    .sporsmalstekst {
+        font-weight: bold;
+    }
+
+    .ny--side {
+        page-break-before: always;
+    }
+
+    .oppsummering__avkrysset img {
+        width: 1em;
+        height: 1em;
+        margin-right: .25em;
+        margin-top: .175em;
+    }
+    .oppsummering__avkrysset span {
+        flex: 1;
+    }
+    .oppsummering__undersporsmal .oppsummering__undersporsmal {
+        padding-left: 1.0em;
+        margin-bottom: 1.0em;
+    }
+    .oppsummering__undersporsmal + .oppsummering__undersporsmal {
+        margin-top: 1.5em;
+    }
+    .oppsummering__tekst,
+    .oppsummering__dato {
+        margin-bottom: .5em;
+    }
+    .oppsummering__avkrysset + .oppsummering__tekstsvar,
+    .oppsummering__svarliste + .oppsummering__tekstsvar,
+    .oppsummering__avkrysset + .oppsummering__undersporsmalsliste,
+    .oppsummering__tekstsvar + .oppsummering__tekstsvar {
+        padding-left: 1.0em;
+    }
+    .oppsummering__svarliste:last-child .oppsummering__undersporsmalsliste {
+        margin-bottom: 0;
+    }
+    .oppsummering__svarliste + .oppsummering__svarliste {
+        margin-top: 1em;
+    }
+    .oppsummering__undersporsmalsliste {
+        margin-top: 0.5em;
+    }
+    .oppsummering__avkrysset + .oppsummering__undersporsmalsliste {
+        margin-bottom: 0.5em;
+        margin-top: 0.5em;
+    }
+    .oppsummering__avkrysset + .oppsummering__undersporsmalsliste > .oppsummering__tekstsvar:first-child {
+        margin-top: -1em;
+    }
+    .oppsummering__avkrysset + .oppsummering__undersporsmalsliste > .oppsummering__tekstsvar {
+        padding-left: 0;
+    }
+    .oppsummering__tekstsvar + .oppsummering__sporsmalscontainer {
+        margin-top: 1em;
+    }
+    .oppsummering__dato {
+        margin-bottom: 0;
+    }
+    .oppsummering__dato:before {
+         content: "\2022";
+         display: inline-block;
+         width: .5em;
+         margin-right: .5em;
+     }
 </style>

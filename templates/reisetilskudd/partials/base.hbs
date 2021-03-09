@@ -27,14 +27,9 @@
                     </p>
                 </div>
                 <div class="sendt">
-                    {{# if sendtTilNAVDato}}
+                    {{# if sendt}}
                         <p>
-                            <span class="semibold">Sendt til NAV</span><br/>{{ iso_to_date sendtTilNAVDato }}
-                        </p>
-                    {{/if}}
-                    {{# if sendtArbeidsgiver}}
-                        <p>
-                            <span class="semibold">Sendt til arbeidsgiver</span><br/>{{ iso_to_date sendtArbeidsgiver }}
+                            <span class="semibold">Sendt til NAV</span><br/>{{ iso_to_nor_date sendt }}
                         </p>
                     {{/if}}
                 </div>
@@ -42,12 +37,18 @@
         </div>
     </div>
     <div class="header--small">
-        <h2>Opplysninger fra sykmeldingen</h2>
+        <h2>Spørsmål fra søknaden</h2>
         <!-- Denne er litt tykkere og litt rare enn den i skissene :( -->
     </div>
-    <p>Her er litt info fra sykmeldinga</p>
+    <div class="sporsmalcontainer">
+        {{# each sporsmal as |spm|~}}
+            <div class="oppsummering__seksjon">
+                {{> reisetilskudd/partials/sporsmal spm}}
+            </div>
+        {{/each}}
+    </div>
 
-    <div class="header--small">
+    <div class="header--small ny--side">
         <h2>Kvitteringer for reise</h2>
     </div>
     <table id="kvittering__oppsummering">
@@ -61,28 +62,28 @@
         {{# each kvitteringer as |kvittering|~}}
             <tr>
                 <td>{{ inc @index }}</td>
-                <td>{{iso_to_date kvittering.datoForReise}}</td>
-                <td>{{kvittering.transport}}</td>
-                <td>{{currency_no kvittering.belop}} kr</td>
+                <td>{{iso_to_date kvittering.datoForUtgift}}</td>
+                <td>{{kvittering.typeUtgift}}</td>
+                <td>{{int_as_currency_no kvittering.belop}} kr</td>
             </tr>
         {{/each}}
             <tr>
                 <td class="no_border" colspan="3"><h3>{{ kvitteringer.length }} utlegg på til sammen</h3></td>
-                <td class="no_border"><h3>{{ currency_no sum }} kr</h3></td>
+                <td class="no_border"><h3>{{ int_as_currency_no sum }} kr</h3></td>
             </tr>
         </tbody>
     </table>
-    
+
 
     {{# each kvitteringer as |kvittering|~}}
-    <div class="kvittering">
+    <div class="ny--side">
         <div class="header--small">
             <h2>Kvittering {{inc @index}}</h2>
         </div>
         <div class="kvittering__metadata">
-            <p><span class="semibold">Dato</span><br/>{{iso_to_date kvittering.datoForReise}}</p>
-            <p><span class="semibold">Beløp</span><br/>{{currency_no kvittering.belop}} kr</p>
-            <p><span class="semibold">Transport</span><br/>{{kvittering.transport}}</p>
+            <p><span class="semibold">Dato</span><br/>{{iso_to_date kvittering.datoForUtgift}}</p>
+            <p><span class="semibold">Beløp</span><br/>{{int_as_currency_no kvittering.belop}} kr</p>
+            <p><span class="semibold">Transport</span><br/>{{kvittering.typeUtgift}}</p>
         </div>
         <div class="kvittering__bilde">
             <img src="data:image/jpeg;base64,{{kvittering.b64data}}"/>
