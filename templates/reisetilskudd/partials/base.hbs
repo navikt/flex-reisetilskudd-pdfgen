@@ -62,9 +62,9 @@
         {{# each kvitteringer as |kvittering|~}}
             <tr>
                 <td>{{ inc @index }}</td>
-                <td>{{iso_to_date kvittering.datoForUtgift}}</td>
-                <td>{{kvittering.typeUtgift}}</td>
-                <td>{{int_as_currency_no kvittering.belop}} kr</td>
+                <td><a href="#kvittering_{{ inc @index }}">{{iso_to_date kvittering.datoForUtgift}}</a></td>
+                <td><a href="#kvittering_{{ inc @index }}">{{kvittering.typeUtgift}}</a></td>
+                <td><a href="#kvittering_{{ inc @index }}">{{int_as_currency_no kvittering.belop}} kr</a></td>
             </tr>
         {{/each}}
             <tr>
@@ -76,7 +76,7 @@
 
 
     {{# each kvitteringer as |kvittering|~}}
-    <div class="ny--side">
+    <div class="ny--side" id="kvittering_{{ inc @index }}">
         <div class="header--small">
             <h2>Kvittering {{inc @index}}</h2>
         </div>
